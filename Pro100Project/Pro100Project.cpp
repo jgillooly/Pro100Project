@@ -7,8 +7,8 @@
 
 int main()
 {
-
-    std::cout << "Hello World!\n";
+    Umbrella::GameBoard board;
+    Umbrella::UI::DisplayBoard(board.board);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

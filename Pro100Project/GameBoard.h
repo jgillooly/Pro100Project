@@ -7,7 +7,7 @@ namespace Umbrella {
 			{
 				for (int j = 0; j < 10; j++)
 				{
-					board[i][j] = 'x';
+					board[i][j] = ' ';
 				}
 			}
 		}
