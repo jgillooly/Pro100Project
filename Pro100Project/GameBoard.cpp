@@ -1,13 +1,14 @@
 #include "GameBoard.h"
+#include <string>
 
 namespace Umbrella {
 	void GameBoard::ClearLines() {
-		for (int i = 10; i < 0; i--) {
+		for (int i = 9; i >= 0; i--) {
 			for (int j = 0; j < 10; j++) {
 				if (board[i][j] != ' ') {
 					if (j == 9) {
 						ClearLine(i);
-						i++;
+						//i++;
 					}
 				}
 				else break;
