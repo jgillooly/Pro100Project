@@ -2,6 +2,8 @@
 //
 
 #include <iostream>
+#include "GameBoard.h"
+#include "UI.h"
 
 int main()
 {
