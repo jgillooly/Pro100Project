@@ -3,19 +3,18 @@ namespace Umbrella {
 	class GameBoard {
 	public:
 		GameBoard() {
-			for (int i = 0; i < 10; i++)
+			/*for (int i = 0; i < 10; i++)
 			{
 				for (int j = 0; j < 10; j++)
 				{
 					board[i][j] = 'x';
 				}
-			}
+			}*/
 		}
 	public:
-		char board[10][10];
-		void ClearLines(char* board[][10]);
+		char board[10][10] = { {'x','x','x',' ','x',' ','x','x','x','x'},{'x','x','x','x','x','x','x','x','x','x'},{'x','x','x','x','x','x',' ','x','x','x'},{'x','x','x','x','x','x',' ','x','x','x'},{'x','x','x',' ','x','x','x','x','x','x'},{'x','x','x',' ','x','x','x','x','x','x'},{'x','x','x','x',' ','x','x','x','x','x'},{'x','x','x','x','x',' ','x','x','x','x'},{'x','x','x','x',' ','x','x','x','x','x'},{'x','x','x','x','x',' ','x','x','x','x'} };
+		void ClearLines();
 	private:
-		void ClearLine(char* board[]);
-		void DropRow(char* board[][10], int col);
+		void ClearLine(int col);
 	};
 }
