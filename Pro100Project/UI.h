@@ -1,15 +1,20 @@
 #pragma once
 #include <iostream>
-static class UI {
-public:
-	static void DisplayBoard(char board[10][10]) {
-		for (int i = 0; i < 10; i++)
-		{
-			for (int j = 0; j < 10; j++)
+namespace Umbrella {
+	static class UI {
+	public:
+		static void DisplayBoard(char board[10][10]) {
+			for (int i = 0; i < 10; i++)
 			{
-				std::cout << board[i][j];
+				for (int j = 0; j < 10; j++)
+				{
+					std::cout << board[i][j];
+				}
+				std::cout << std::endl;
 			}
-			std::cout << std::endl;
 		}
-	}
-};
+		static void ChangeCharacter(char* board[10][10], int row, int column, char newchar) {
+			*board[row][column] = newchar;
+		}
+	};
+}
