@@ -13,8 +13,5 @@ namespace Umbrella {
 				std::cout << std::endl;
 			}
 		}
-		static void ChangeCharacter(char* board[10][10], int row, int column, char newchar) {
-			*board[row][column] = newchar;
-		}
 	};
 }
