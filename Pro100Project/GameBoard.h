@@ -13,5 +13,9 @@ namespace Umbrella {
 		}
 	public:
 		char board[10][10];
+		void ClearLines(char* board[][10]);
+	private:
+		void ClearLine(char* board[]);
+		void DropRow(char* board[][10], int col);
 	};
 }
