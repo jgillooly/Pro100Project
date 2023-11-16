@@ -4,15 +4,39 @@
 #include <iostream>
 #include "GameBoard.h"
 #include "UI.h"
+#include "Piece.h"
 
 using namespace Umbrella;
 
     int main()
     {
         GameBoard board;
-        UI::DisplayBoard(board.board);
-        board.ClearLines();
-        UI::DisplayBoard(board.board);
+        
+        //board.ClearLines();
+        //UI::DisplayBoard(board);
+
+        Piece piece;
+        piece.positions[0].column = 0;
+        piece.positions[0].row = 0;
+
+        piece.positions[1].column = 0;
+        piece.positions[1].row = 1;
+
+        piece.positions[2].column = 1;
+        piece.positions[2].row = 0;
+
+        piece.positions[3].column = 1;
+        piece.positions[3].row = 1;
+
+        UI::DisplayBoard(board, piece);
+
+        piece.move('r');
+
+        UI::DisplayBoard(board, piece);
+
+        piece.move('l');
+
+        UI::DisplayBoard(board, piece);
 
         return 0;
     }
