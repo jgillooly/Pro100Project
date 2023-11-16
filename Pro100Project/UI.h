@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <iostream>
 namespace Umbrella {
 	static class UI {
@@ -9,7 +9,7 @@ namespace Umbrella {
 				std::cout << "|";
 				for (int j = 0; j < 10; j++)
 				{
-					std::cout << board[i][j];
+					std::cout << ((board[i][j] != ' ') ? '#' : ' ');
 				}
 				std::cout << "|" << std::endl;
 			}
