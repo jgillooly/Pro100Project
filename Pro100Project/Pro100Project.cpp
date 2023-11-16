@@ -5,11 +5,17 @@
 #include "GameBoard.h"
 #include "UI.h"
 
-int main()
-{
+using namespace Umbrella;
 
-    std::cout << "Hello World!\n";
-}
+    int main()
+    {
+        GameBoard board;
+        UI::DisplayBoard(board.board);
+        board.ClearLines();
+        UI::DisplayBoard(board.board);
+
+        return 0;
+    }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

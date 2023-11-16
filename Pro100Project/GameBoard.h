@@ -3,19 +3,29 @@ namespace Umbrella {
 	class GameBoard {
 	public:
 		GameBoard() {
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < ROW_SIZE; i++)
 			{
-				for (int j = 0; j < 10; j++)
+				for (int j = 0; j < COL_SIZE; j++)
 				{
-					board[i][j] = 'x';
+					board[i][j] = 'X';
 				}
 			}
 		}
 	public:
-		char board[10][10];
-		void ClearLines(char* board[][10]);
+		const static int ROW_SIZE = 10;
+		const static int COL_SIZE = 10;
+		char board[ROW_SIZE][COL_SIZE]; /*= {	{'x','x','x','x','x','x','x','x','x','x'},
+												{'x','x','x','x','x','x','x','x','x','x'},
+												{'x','x','x','x','x','x','x','x','x','x'},
+												{'x','x','x','x','x','x','x','x','x','x'},
+												{'x','x',' ','x','x','x','x','x','x','x'},
+												{'x','x','x','x','x','x','x','x','x','x'},
+												{'x','x','x','x','x','x','x','x','x','x'},
+												{'x','x','x','x','x','x','x','x','x','x'},
+												{'x',' ','x','x','x','x','x','x','x','x'},
+												{' ','x','x','x','x','x','x','x','x','x'} };*/
+		void ClearLines();
 	private:
-		void ClearLine(char* board[]);
-		void DropRow(char* board[][10], int col);
+		void ClearLine(int col);
 	};
 }
