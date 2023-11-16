@@ -14,7 +14,7 @@ namespace Umbrella {
 	public:
 		const static int ROW_SIZE = 10;
 		const static int COL_SIZE = 10;
-		char board[ROW_SIZE][COL_SIZE]; /*= {	{'x','x','x','x','x','x','x','x','x','x'},
+		char board[ROW_SIZE][COL_SIZE]; /*= {		{'x','x','x','x','x','x','x','x','x','x'},
 												{'x','x','x','x','x','x','x','x','x','x'},
 												{'x','x','x','x','x','x','x','x','x','x'},
 												{'x','x','x','x','x','x','x','x','x','x'},
