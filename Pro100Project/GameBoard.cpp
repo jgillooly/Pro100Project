@@ -8,7 +8,7 @@ namespace Umbrella {
 				if (board[i][j] != ' ') {
 					if (j == 9) {
 						ClearLine(i);
-						//i++;
+						i++;
 					}
 				}
 				else break;
@@ -18,9 +18,9 @@ namespace Umbrella {
 
 	void GameBoard::ClearLine(int col)
 	{
-		for (int i = col; i > 1; i--) {
+		for (int i = col; i >= 1; i--) {
 			for (int j = 0; j < 10; j++) {
-				board[i][j] = board[i - 1][i];
+				board[i][j] = board[i - 1][j];
 			}
 		}
 		for (int i = 0; i < 10; i++) {
