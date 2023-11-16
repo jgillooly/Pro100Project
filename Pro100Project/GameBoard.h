@@ -1,13 +1,17 @@
 #pragma once
+#include "Piece.h"
 namespace Umbrella {
 	class GameBoard {
 	public:
+		struct Board {
+			char board[10][10];
+		};
 		GameBoard() {
 			for (int i = 0; i < ROW_SIZE; i++)
 			{
 				for (int j = 0; j < COL_SIZE; j++)
 				{
-					board[i][j] = 'X';
+					mainBoard.board[i][j] = ' ';
 				}
 			}
 		}
@@ -25,6 +29,10 @@ namespace Umbrella {
 												{'x',' ','x','x','x','x','x','x','x','x'},
 												{' ','x','x','x','x','x','x','x','x','x'} };*/
 		void ClearLines();
+		Board mainBoard;
+		Board IncludePiece(Piece block);
+
+
 	private:
 		void ClearLine(int col);
 	};
