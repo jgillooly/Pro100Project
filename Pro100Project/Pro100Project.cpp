@@ -17,15 +17,15 @@ using namespace Umbrella;
         //board.ClearLines();
         //UI::DisplayBoard(board);
 
-        UI::DisplayBoard(board, game.sBlock);
+        UI::DisplayBoard(board, game.lBlock);
 
-        game.sBlock.move('r');
+        game.lBlock.move('r');
 
-        UI::DisplayBoard(board, game.sBlock);
+        UI::DisplayBoard(board, game.lBlock);
 
-        game.sBlock.move('l');
+        game.lBlock.move('l');
 
-        UI::DisplayBoard(board, game.sBlock);
+        UI::DisplayBoard(board, game.lBlock);
 
         return 0;
     }
