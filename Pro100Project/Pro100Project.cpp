@@ -29,8 +29,9 @@ int main() {
     piece.positions[3].row = 1;
 
     char userInput;
-
+    UI::StartScreen();
     while (true) {
+        
         UI::DisplayBoard(board, piece);
 
         // Get user input
