@@ -11,5 +11,9 @@ namespace Umbrella {
         Piece tBlock = Piece(0,0,1,0,1,1,2,0);
         Piece jBlock = Piece(0,0,1,0,2,0,2,1);
         Piece lBlock = Piece(0,1,1,1,2,1,2,0);
+
+        GameBoard board;
+
+        void run();
 	};
 }
