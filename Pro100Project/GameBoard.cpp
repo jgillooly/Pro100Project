@@ -16,6 +16,24 @@ namespace Umbrella {
 		}
 	}
 
+	Umbrella::GameBoard::Board GameBoard::IncludePiece(Piece block) {
+		GameBoard::Board newboard;
+
+		for (int i = 0; i < 10; i++)
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				newboard.board[i][j] = mainBoard.board[i][j];
+			}
+		}
+
+		for (auto segment : block.positions) {
+			newboard.board[segment.row][segment.column] = '#';
+		}
+
+		return newboard;
+	}
+
 	void GameBoard::ClearLine(int col)
 	{
 		for (int i = col; i > 0; i--) {
