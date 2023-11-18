@@ -1,21 +1,63 @@
-// Pro100Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//// Pro100Project.cpp : This file contains the 'main' function. Program execution begins and ends there.
+////
 //
-
+// main.cpp
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include "GameBoard.h"
 #include "UI.h"
+#include "Piece.h"
 
 using namespace Umbrella;
 
-    int main()
-    {
-        GameBoard board;
-        UI::DisplayBoard(board.board);
-        board.ClearLines();
-        UI::DisplayBoard(board.board);
+int main() {
+    GameBoard board;
+    Piece piece;
 
-        return 0;
+    piece.positions[0].column = 0;
+    piece.positions[0].row = 0;
+
+    piece.positions[1].column = 0;
+    piece.positions[1].row = 1;
+
+    piece.positions[2].column = 1;
+    piece.positions[2].row = 0;
+
+    piece.positions[3].column = 1;
+    piece.positions[3].row = 1;
+
+    char userInput;
+
+    while (true) {
+        UI::DisplayBoard(board, piece);
+
+        // Get user input
+        std::cout << "Enter movement direction (l/r/s/q): ";
+        std::cin >> userInput;
+
+        // Handle user input
+        if (userInput == 'q') {
+            break;  // Quit the loop if the user enters 'q'
+        }
+        else if (userInput == 'l' || userInput == 'r') {
+            // Move the piece left or right based on user input
+            piece.move(userInput);
+        }
+        else if (userInput == 's') {
+            piece.drop(board);
+        }
+
+        // Simulate a delay for a smoother experience (adjust as needed)
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
+
+    return 0;
+}
+
+
+
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
