@@ -1,15 +1,16 @@
 #pragma once
 #include "GameBoard.h"
+#include <vector>
 
 namespace Umbrella {
 	class Game {
     public:
-        Piece oBlock = Piece(0,0,0,1,1,0,1,1);
-        Piece iBlock = Piece(0,0,0,1,0,2,0,3);
-        Piece sBlock = Piece(2,0,1,0,1,1,0,1);
-        Piece zBlock = Piece(0,0,1,0,1,1,2,1);
-        Piece tBlock = Piece(0,0,1,0,1,1,2,0);
-        Piece jBlock = Piece(0,0,1,0,2,0,2,1);
-        Piece lBlock = Piece(0,1,1,1,2,1,2,0);
+        std::vector<int> oBlock = { 0, 0, 0, 1, 1, 0, 1, 1 };
+        std::vector<int> iBlock = { 0,0,0,1,0,2,0,3 };
+        std::vector<int> sBlock = {2,0,1,0,1,1,0,1};
+        std::vector<int> zBlock = {0,0,1,0,1,1,2,1};
+        std::vector<int> tBlock = {0,0,1,0,1,1,2,0};
+        std::vector<int> jBlock = {0,0,1,0,2,0,2,1};
+        std::vector<int> lBlock = {0,1,1,1,2,1,2,0};
 	};
 }

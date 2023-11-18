@@ -14,19 +14,10 @@ using namespace Umbrella;
 
 int main() {
     GameBoard board;
-    Piece piece;
+    Game game;
+    Piece piece(game.oBlock);
 
-    piece.positions[0].column = 0;
-    piece.positions[0].row = 0;
 
-    piece.positions[1].column = 0;
-    piece.positions[1].row = 1;
-
-    piece.positions[2].column = 1;
-    piece.positions[2].row = 0;
-
-    piece.positions[3].column = 1;
-    piece.positions[3].row = 1;
 
     char userInput;
     UI::StartScreen();
