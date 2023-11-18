@@ -8,6 +8,7 @@
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
+#include "Game.h"
 
 using namespace Umbrella;
 
