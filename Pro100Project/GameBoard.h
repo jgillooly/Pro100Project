@@ -7,9 +7,9 @@ namespace Umbrella {
 			char board[10][10];
 		};
 		GameBoard() {
-			for (int i = 0; i < ROW_SIZE; i++)
+			for (int i = 0; i < 10; i++)
 			{
-				for (int j = 0; j < COL_SIZE; j++)
+				for (int j = 0; j < 10; j++)
 				{
 					mainBoard.board[i][j] = ' ';
 				}
