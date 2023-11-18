@@ -3,6 +3,8 @@
 namespace Umbrella {
 	class GameBoard {
 	public:
+		static const int COL_SIZE = 10;
+		static const int ROW_SIZE = 10;
 		struct Board {
 			char board[10][10];
 		};
