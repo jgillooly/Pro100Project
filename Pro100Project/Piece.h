@@ -22,6 +22,9 @@ namespace Umbrella {
 			positions[3].column = col3;
 			positions[3].row = row3;
 		}
+		Piece() {
+
+		}
 		Position positions[4];
 		void move(char direction);
 		void drop(GameBoard& board); // New method for dropping the piece
