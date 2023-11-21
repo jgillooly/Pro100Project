@@ -2,30 +2,27 @@
 //
 
 #include <iostream>
+#include <chrono>
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
 #include "Game.h"
 
 using namespace Umbrella;
+using namespace std::chrono;
 
     int main()
     {
         GameBoard board;
         Game game;
-        
-        //board.ClearLines();
-        //UI::DisplayBoard(board);
 
-        UI::DisplayBoard(board, game.lBlock);
-
-        game.lBlock.move('r');
-
-        UI::DisplayBoard(board, game.lBlock);
-
-        game.lBlock.move('l');
-
-        UI::DisplayBoard(board, game.lBlock);
+        auto start = high_resolution_clock::now();
+        do {
+            auto stop = high_resolution_clock::now();
+            auto duration = duration_cast<seconds>(stop - start);
+            std::cout << duration.count() << "" << std::endl;
+        } while (true);
+                
 
         return 0;
     }
