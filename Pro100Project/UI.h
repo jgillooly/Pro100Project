@@ -15,7 +15,7 @@ namespace Umbrella {
 				std::cout << whitespace <<"|";
 				for (int j = 0; j < GameBoard::COL_SIZE; j++)
 				{
-					std::cout << ((newBoard.board[i][j] != ' ') ? '#' : ' ');
+					std::cout << ((newBoard.board[i][j] != ' ') ? newBoard.board[i][j] : ' ');
 				}
 				std::cout << "|" << std::endl;
 			}

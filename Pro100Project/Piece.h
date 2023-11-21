@@ -45,5 +45,6 @@ namespace Umbrella {
 		void drop(GameBoard& board); // New method for dropping the piece
 		bool canDown(const GameBoard& board) const;
 		void moveDown();
+		void Reset(std::vector<int> vec);
 	};
 }

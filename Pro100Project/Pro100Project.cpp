@@ -17,13 +17,13 @@ int main() {
     Game game;
     Piece piece(game.oBlock);
 
-
+    
 
     char userInput;
 
     while (true) {
         UI::DisplayBoard(board, piece);
-
+        
         // Get user input
         std::cout << "Enter movement direction (l/r/s/q): ";
         std::cin >> userInput;
@@ -36,8 +36,12 @@ int main() {
             // Move the piece left or right based on user input
             piece.move(userInput);
         }
+        //else if (userInput == 's') {
+        //    piece.drop(board);
+        //}
         else if (userInput == 's') {
-            piece.drop(board);
+            board.PlacePiece(piece);
+            piece.Reset(game.iBlock);
         }
 
         // Simulate a delay for a smoother experience (adjust as needed)

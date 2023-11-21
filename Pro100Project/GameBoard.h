@@ -21,6 +21,7 @@ namespace Umbrella {
 		void ClearLines();
 		Board mainBoard;
 		Board IncludePiece(Piece block);
+		void PlacePiece(Piece block);
 
 
 	private:
