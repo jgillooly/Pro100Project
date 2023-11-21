@@ -20,8 +20,9 @@ int main() {
     
 
     char userInput;
-
+    UI::StartScreen();
     while (true) {
+        
         UI::DisplayBoard(board, piece);
         
         // Get user input
