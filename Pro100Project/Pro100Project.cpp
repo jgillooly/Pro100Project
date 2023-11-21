@@ -41,11 +41,12 @@ int main() {
         //}
         else if (userInput == 's') {
             board.PlacePiece(piece);
-            piece.Reset(game.iBlock);
+            piece.Reset(game.GetRandomPiece());
         }
 
         // Simulate a delay for a smoother experience (adjust as needed)
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        board.ClearLines();
     }
 
     return 0;
