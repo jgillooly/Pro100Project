@@ -17,6 +17,7 @@ int main() {
     Game game;
     Piece piece(game.oBlock);
 
+    system("Color AD" );
 
 
     char userInput;
