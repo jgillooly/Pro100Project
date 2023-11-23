@@ -12,20 +12,31 @@
 
 using namespace Umbrella;
 using namespace std::chrono;
+using namespace std;
 
 int main() {
     GameBoard board;
     Game game;
     Piece piece(game.oBlock);
-
+    auto start = high_resolution_clock::now();
     
 
     char userInput;
     UI::StartScreen();
+    
     while (true) {
         
         UI::DisplayBoard(board, piece);
-        
+
+        //get the current time
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<seconds>(stop - start);
+        cout << duration.count() << endl;
+
+        if (duration.count() >= 3) {
+            start = high_resolution_clock::now();
+            piece.moveDown();
+        }
         // Get user input
         std::cout << "Enter movement direction (l/r/s/q): ";
         std::cin >> userInput;
