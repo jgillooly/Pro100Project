@@ -3,9 +3,9 @@
 
 namespace Umbrella {
 	void GameBoard::ClearLines() {
-		for (int i = ROW_SIZE - 1; i >= 0; i--) {
-			for (int j = 0; j < COL_SIZE; j++) {
-				if (board[i][j] != ' ') {
+		for (int i = 9; i >= 0; i--) {
+			for (int j = 0; j < 10; j++) {
+				if (mainBoard.board[i][j] != ' ') {
 					if (j == 9) {
 						ClearLine(i);
 						i++;
@@ -34,15 +34,24 @@ namespace Umbrella {
 		return newboard;
 	}
 
+	void GameBoard::PlacePiece(Piece block)
+	{
+		block.drop(*this);
+		for (int i = 0; i < 4; i++)
+		{
+			mainBoard.board[block.positions[i].row][block.positions[i].column] = 'X';
+		}
+	}
+
 	void GameBoard::ClearLine(int col)
 	{
-		for (int i = col; i > 0; i--) {
-			for (int j = 0; j < COL_SIZE; j++) {
-				board[i][j] = board[i - 1][j];
+		for (int i = col; i >= 1; i--) {
+			for (int j = 0; j < 10; j++) {
+				mainBoard.board[i][j] = mainBoard.board[i - 1][j];
 			}
 		}
-		for (int i = 0; i < COL_SIZE; i++) {
-			board[0][i] = ' ';
+		for (int i = 0; i < 10; i++) {
+			mainBoard.board[0][i] = ' ';
 		}
 	}
 }
