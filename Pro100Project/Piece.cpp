@@ -54,16 +54,16 @@ namespace Umbrella {
     }
 
     void Piece::Reset(std::vector<int> vec) {
-        positions[0].column = vec[0];
+        positions[0].column = vec[0] + 4;
         positions[0].row = vec[1];
 
-        positions[1].column = vec[2];
+        positions[1].column = vec[2] + 4;
         positions[1].row = vec[3];
 
-        positions[2].column = vec[4];
+        positions[2].column = vec[4] + 4;
         positions[2].row = vec[5];
 
-        positions[3].column = vec[6];
+        positions[3].column = vec[6] + 4;
         positions[3].row = vec[7];
     }
 }
