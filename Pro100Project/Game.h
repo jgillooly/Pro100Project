@@ -1,5 +1,6 @@
 #pragma once
 #include "GameBoard.h"
+#include <vector>
 
 namespace Umbrella {
     class Game {

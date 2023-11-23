@@ -1,6 +1,9 @@
 #include "Game.h"
+#include <vector>
+#include <chrono>
 
 namespace Umbrella {
+
 	std::vector<int> Umbrella::Game::GetRandomPiece()
 	{
 		int output = 1 + (rand() * (int)(7 - 1) / RAND_MAX);
