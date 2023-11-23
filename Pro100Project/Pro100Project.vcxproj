@@ -127,6 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrowMove.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameBoard.cpp" />
+    <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Pro100Project.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
