@@ -23,7 +23,7 @@ namespace Umbrella {
 		Board IncludePiece(Piece block);
 		void PlacePiece(Piece block);
 
-		bool CheckForLoss(Board board, Piece nextBlock);
+		bool CheckForLoss(Piece nextBlock);
 
 	private:
 		void ClearLine(int col);

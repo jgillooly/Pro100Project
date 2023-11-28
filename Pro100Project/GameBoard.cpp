@@ -33,14 +33,17 @@ namespace Umbrella {
 		return newboard;
 	}
 
-	bool GameBoard::CheckForLoss(Board board, Piece nextBlock)
+	bool GameBoard::CheckForLoss(Piece nextBlock)
 	{
 		for (int i = 0; i < ROW_SIZE; i++)
 		{
-			if (board.board[0][i] != '#') continue;
+			if (mainBoard.board[0][i] == ' ') continue;
 			for (int j = 0; j < 4; j++)
 			{
-				if (board.board[0][i] == nextBlock.positions[j].row) return true;
+				if (nextBlock.positions[j].column == i)
+				{
+					return true;
+				}
 
 			}
 		}
