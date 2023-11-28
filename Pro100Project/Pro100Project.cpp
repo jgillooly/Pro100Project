@@ -5,10 +5,12 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <conio.h>
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
 #include "Game.h"
+#include "ArrowKeys.h"
 
 using namespace Umbrella;
 using namespace std::chrono;
@@ -20,46 +22,40 @@ int main() {
     Piece piece(game.oBlock);
     auto start = high_resolution_clock::now();
     
-
-    char userInput;
     UI::StartScreen();
     
+    //auto dropTimer = std::chrono::steady_clock::now();
     while (true) {
-        
+        system("cls");
         UI::DisplayBoard(board, piece);
 
         //get the current time
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<seconds>(stop - start);
-        cout << duration.count() << endl;
-
-        if (duration.count() >= 3) {
+  
+        if (duration.count() >= 2) {
             start = high_resolution_clock::now();
-            piece.moveDown();
+            if (!piece.canDown(board))
+            {
+                board.PlacePiece(piece);
+                piece.Reset(game.GetRandomPiece());
+            }
+            else {
+                piece.moveDown();
+            }
         }
         // Get user input
-        std::cout << "Enter movement direction (l/r/s/q): ";
-        std::cin >> userInput;
-
-        // Handle user input
-        if (userInput == 'q') {
-            break;  // Quit the loop if the user enters 'q'
-        }
-        else if (userInput == 'l' || userInput == 'r') {
-            // Move the piece left or right based on user input
-            piece.move(userInput);
-        }
-        //else if (userInput == 's') {
-        //    piece.drop(board);
-        //}
-        else if (userInput == 's') {
-            board.PlacePiece(piece);
-            piece.Reset(game.GetRandomPiece());
+        //std::cout << "Enter movement direction (l/r/s/q): ";
+        if (_kbhit()) {
+            Umbrella::Move(piece, board);
         }
 
         // Simulate a delay for a smoother experience (adjust as needed)
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+
         board.ClearLines();
+
+        
     }
 
     return 0;

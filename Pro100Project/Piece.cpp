@@ -35,7 +35,6 @@ namespace Umbrella {
             break;
         }
         }
-        //moveDown();
     }
 
     bool Piece::canDown(const GameBoard& board) const {
