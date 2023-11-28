@@ -21,7 +21,7 @@ namespace Umbrella {
 		void ClearLines();
 		Board mainBoard;
 		Board IncludePiece(Piece block);
-
+		bool CheckForLoss(Board board, Piece nextBlock);
 
 	private:
 		void ClearLine(int col);
