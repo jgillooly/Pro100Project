@@ -47,6 +47,15 @@ namespace Umbrella {
 		return false;
 	}
 
+	void GameBoard::PlacePiece(Piece block)
+	{
+		block.drop(*this);
+		for (int i = 0; i < 4; i++)
+		{
+			mainBoard.board[block.positions[i].row][block.positions[i].column] = 'X';
+		}
+	}
+
 	void GameBoard::ClearLine(int col)
 	{
 		for (int i = col; i >= 1; i--) {

@@ -1,6 +1,7 @@
 #pragma once
 #include "GameBoard.h"
 #include <vector>
+#include <random>
 
 namespace Umbrella {
 	class Game {
@@ -12,5 +13,6 @@ namespace Umbrella {
         std::vector<int> tBlock = {0,0,1,0,1,1,2,0};
         std::vector<int> jBlock = {0,0,1,0,2,0,2,1};
         std::vector<int> lBlock = {0,1,1,1,2,1,2,0};
+        std::vector<int> GetRandomPiece();
 	};
 }
