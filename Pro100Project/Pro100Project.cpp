@@ -36,7 +36,7 @@ int main() {
         }
         else if (userInput == 'l' || userInput == 'r') {
             // Move the piece left or right based on user input
-            piece.move(userInput);
+            piece.move(userInput, board);
         }
         //else if (userInput == 's') {
         //    piece.drop(board);
@@ -46,6 +46,11 @@ int main() {
             piece.Reset(game.GetRandomPiece());
         }
 
+        if (piece.canDown(board) == false)
+        {
+            board.PlacePiece(piece);
+            piece.Reset(game.GetRandomPiece());
+        }
 
 
         //check if loss 

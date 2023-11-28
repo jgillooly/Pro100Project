@@ -41,7 +41,7 @@ namespace Umbrella {
 
 		}
 		Position positions[4];
-		void move(char direction);
+		void move(char direction, GameBoard board);
 		void drop(GameBoard& board); // New method for dropping the piece
 		bool canDown(const GameBoard& board) const;
 		void moveDown();
