@@ -6,6 +6,7 @@
 #include <chrono>
 #include <thread>
 #include <conio.h>
+#include <random>
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
@@ -42,7 +43,11 @@ int main() {
             if (!piece.canDown(board))
             {
                 board.PlacePiece(piece);
-                piece.Reset(game.GetRandomPiece());
+                int output = rand() % 2;
+                if (output == 1) {
+                    std::cout << "DEBUG";
+                }
+                piece.Reset(game.allBlocks[game.PieceIDtoString(output)][0], output);
             }
             else {
                 piece.moveDown();

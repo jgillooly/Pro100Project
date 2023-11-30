@@ -41,5 +41,15 @@ namespace Umbrella {
 
         std::vector<int> GetNextRotation(std::string piece, int current);
         std::string PieceIDtoString(int id);
+
+        Game() {
+            oBlocks.push_back(oBlock);
+            
+            iBlocks.push_back(iBlock);
+            iBlocks.push_back(iBlockR);
+
+            allBlocks["oBlock"] = oBlocks;
+            allBlocks["iBlock"] = iBlocks;
+        }
 	};
 }

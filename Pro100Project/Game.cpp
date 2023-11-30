@@ -19,11 +19,12 @@ std::vector<int> Umbrella::Game::GetRandomPiece()
 	case 7:
 		return lBlock;
 	}
+	return oBlock;
 }
 
 std::vector<int> Umbrella::Game::GetNextRotation(std::string piece, int current)
 {
-	auto vector = allBlocks[piece];
+	return jBlock;
 }
 
 std::string Umbrella::Game::PieceIDtoString(int id)
