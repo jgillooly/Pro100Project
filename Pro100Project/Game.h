@@ -2,6 +2,7 @@
 #include "GameBoard.h"
 #include <vector>
 #include <random>
+#include <map>
 
 namespace Umbrella {
     class Game {
@@ -27,5 +28,18 @@ namespace Umbrella {
 
         std::vector<int> lBlock = { 0,1,1,1,2,1,2,0 };
         std::vector<int> lBlockR = { 0,1,1,1,2,1,2,2 };
+
+        std::vector<std::vector<int>> oBlocks;
+        std::vector<std::vector<int>> iBlocks;
+        std::vector<std::vector<int>> sBlocks;
+        std::vector<std::vector<int>> zBlocks;
+        std::vector<std::vector<int>> tBlocks;
+        std::vector<std::vector<int>> jBlocks;
+        std::vector<std::vector<int>> lBlocks;
+
+        std::map<std::string, std::vector<std::vector<int>>> allBlocks;
+
+        std::vector<int> GetNextRotation(std::string piece, int current);
+        std::string PieceIDtoString(int id);
 	};
 }

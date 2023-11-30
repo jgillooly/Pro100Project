@@ -11,6 +11,8 @@ namespace Umbrella {
 			int row, column;
 		};
 	std::string color = "red";
+	int rotation = 0;
+	int pieceID;
 	public:
 		Piece(int col0, int row0, int col1, int row1, int col2, int row2, int col3, int row3) {
 			positions[0].column = col0;
