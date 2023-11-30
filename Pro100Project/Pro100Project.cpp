@@ -3,7 +3,7 @@
 //
 // main.cpp
 #include <iostream>
-#include <experimental/filesystem>
+//#include <experimental/filesystem>
 #include <chrono>
 #include <thread>
 #include <conio.h>
@@ -20,7 +20,7 @@ using namespace std;
 
 int main() {
     std::error_code ec;
-    std::experimental::filesystem::current_path("assets", ec);
+    //std::experimental::filesystem::current_path("assets", ec);
 
     GameBoard board;
     Game game;
@@ -35,7 +35,7 @@ int main() {
     //auto dropTimer = std::chrono::steady_clock::now();
     bool playing = true;
 
-    PlaySound(TEXT("Music.mp3"), NULL, SND_FILENAME | SND_ASYNC);
+   // PlaySound(TEXT("Music.mp3"), NULL, SND_FILENAME | SND_ASYNC);
     while (playing) {
         system("cls");
         UI::DisplayBoard(board, piece);
