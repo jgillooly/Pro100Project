@@ -30,8 +30,24 @@ namespace Umbrella {
 		for (auto segment : block.positions) {
 			newboard.board[segment.row][segment.column] = '#';
 		}
-
 		return newboard;
+	}
+
+	bool GameBoard::CheckForLoss(Piece nextBlock)
+	{
+		for (int i = 0; i < ROW_SIZE; i++)
+		{
+			if (mainBoard.board[0][i] == ' ') continue;
+			for (int j = 0; j < 4; j++)
+			{
+				if (nextBlock.positions[j].column == i)
+				{
+					return true;
+				}
+
+			}
+		}
+		return false;
 	}
 
 	void GameBoard::PlacePiece(Piece block)

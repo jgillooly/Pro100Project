@@ -53,6 +53,15 @@ int main() {
             Umbrella::Move(piece, board);
         }
 
+
+        //check if loss 
+        if (board.CheckForLoss(piece))
+        {
+            playing = false;
+            UI::EndScreen();
+        }
+        
+
         // Simulate a delay for a smoother experience (adjust as needed)
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
 

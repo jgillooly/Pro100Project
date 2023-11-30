@@ -20,17 +20,32 @@ namespace Umbrella {
 			}
 		}
 	}
-    void Piece::move(char direction) {
+    void Piece::move(char direction, GameBoard board) {
+        bool canmove = true;
         switch (direction) {
         case 'l': {
             for (int i = 0; i < 4; ++i) {
-                positions[i].column -= 1;
+                if (board.mainBoard.board[positions[i].row][positions[i].column - 1] != ' ') canmove = false;
+
+            }
+            if (canmove)
+            {
+                for (int i = 0; i < 4; ++i) {
+                    positions[i].column -= 1;
+                }
             }
             break;
         }
         case 'r': {
             for (int i = 0; i < 4; ++i) {
-                positions[i].column += 1;
+                if (board.mainBoard.board[positions[i].row][positions[i].column + 1] != ' ') canmove = false;
+
+            }
+            if (canmove)
+            {
+                for (int i = 0; i < 4; ++i) {
+                    positions[i].column += 1;
+                }
             }
             break;
         }
@@ -40,6 +55,7 @@ namespace Umbrella {
     bool Piece::canDown(const GameBoard& board) const {
         for (int i = 0; i < 4; ++i) {
             if (positions[i].row + 1 >= 10 || board.mainBoard.board[positions[i].row + 1][positions[i].column] != ' ') {
+                
                 return false;  // Collision with the bottom or another piece
             }
         }
