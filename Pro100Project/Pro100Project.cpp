@@ -3,9 +3,11 @@
 //
 // main.cpp
 #include <iostream>
+#include <experimental/filesystem>
 #include <chrono>
 #include <thread>
 #include <conio.h>
+#include <Windows.h>
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
@@ -17,6 +19,9 @@ using namespace std::chrono;
 using namespace std;
 
 int main() {
+    std::error_code ec;
+    std::experimental::filesystem::current_path("assets", ec);
+
     GameBoard board;
     Game game;
     Piece piece(game.oBlock);
@@ -25,10 +30,12 @@ int main() {
     UI::StartScreen();
     
     std::cout << "Press Enter to start the game...";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Wait for Enter key
+    std::cin.ignore(LLONG_MAX, '\n'); // Wait for Enter key
 
     //auto dropTimer = std::chrono::steady_clock::now();
     bool playing = true;
+
+    PlaySound(TEXT("Music.mp3"), NULL, SND_FILENAME | SND_ASYNC);
     while (playing) {
         system("cls");
         UI::DisplayBoard(board, piece);
