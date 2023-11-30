@@ -1,6 +1,7 @@
 // Piece.h
 #pragma once
 #include <vector>
+#include <string>
 
 namespace Umbrella {
 	class GameBoard;
@@ -9,6 +10,7 @@ namespace Umbrella {
 		struct Position {
 			int row, column;
 		};
+	std::string color = "red";
 	public:
 		Piece(int col0, int row0, int col1, int row1, int col2, int row2, int col3, int row3) {
 			positions[0].column = col0;
@@ -36,6 +38,22 @@ namespace Umbrella {
 
 			positions[3].column = vec[6] + 4;
 			positions[3].row = vec[7];
+		}
+
+		Piece(std::vector<int> vec, std::string color) {
+			positions[0].column = vec[0] + 4;
+			positions[0].row = vec[1];
+
+			positions[1].column = vec[2] + 4;
+			positions[1].row = vec[3];
+
+			positions[2].column = vec[4] + 4;
+			positions[2].row = vec[5];
+
+			positions[3].column = vec[6] + 4;
+			positions[3].row = vec[7];
+
+			this->color = color;
 		}
 		Piece() {
 

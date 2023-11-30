@@ -56,6 +56,7 @@ namespace Umbrella {
 		for (int i = 0; i < 4; i++)
 		{
 			mainBoard.board[block.positions[i].row][block.positions[i].column] = 'X';
+			mainBoard.colors[block.positions[i].row][block.positions[i].column] = block.color;
 		}
 	}
 
