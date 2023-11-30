@@ -12,7 +12,7 @@ using namespace std;
 
 namespace Umbrella {
 
-    static int Move(Piece& piece, GameBoard board) {
+    static bool Move(Piece& piece, GameBoard board) {
         int c = 0;
             c = 0;
 
@@ -31,6 +31,6 @@ namespace Umbrella {
                 piece.move('r');
                 break;
             }
-        return 0;
+        return false;
     }
 }

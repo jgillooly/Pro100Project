@@ -24,6 +24,9 @@ int main() {
     
     UI::StartScreen();
     
+    std::cout << "Press Enter to start the game...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Wait for Enter key
+
     //auto dropTimer = std::chrono::steady_clock::now();
     while (true) {
         system("cls");
