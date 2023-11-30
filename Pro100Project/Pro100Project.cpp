@@ -28,7 +28,8 @@ int main() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Wait for Enter key
 
     //auto dropTimer = std::chrono::steady_clock::now();
-    while (true) {
+    bool playing = true;
+    while (playing) {
         system("cls");
         UI::DisplayBoard(board, piece);
 
@@ -63,10 +64,9 @@ int main() {
         
 
         // Simulate a delay for a smoother experience (adjust as needed)
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
         board.ClearLines();
-
         
     }
 

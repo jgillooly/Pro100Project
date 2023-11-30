@@ -24,11 +24,10 @@ namespace Umbrella {
                 piece.drop(board);
                 break;
             case KEY_LEFT:
-                piece.move('l');
-                cout << "LEFT" << endl;
+                piece.move('l', board);
                 break;
             case KEY_RIGHT:
-                piece.move('r');
+                piece.move('r', board);
                 break;
             }
         return false;
