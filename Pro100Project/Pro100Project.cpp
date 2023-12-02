@@ -3,7 +3,6 @@
 //
 // main.cpp
 #include <iostream>
-//#include <experimental/filesystem>
 #include <chrono>
 #include <thread>
 #include <conio.h>
@@ -15,14 +14,13 @@
 #include "Game.h"
 #include "ArrowKeys.h"
 
+#pragma comment(lib, "winmm.lib")
+
 using namespace Umbrella;
 using namespace std::chrono;
 using namespace std;
 
 int main() {
-    std::error_code ec;
-    //std::experimental::filesystem::current_path("assets", ec);
-
     GameBoard board;
     Game game;
     Piece piece(game.oBlock);
@@ -33,10 +31,9 @@ int main() {
     std::cout << "Press Enter to start the game...";
     std::cin.ignore(LLONG_MAX, '\n'); // Wait for Enter key
 
-    //auto dropTimer = std::chrono::steady_clock::now();
     bool playing = true;
 
-   // PlaySound(TEXT("Music.mp3"), NULL, SND_FILENAME | SND_ASYNC);
+    PlaySound(TEXT("Music.mp3"), NULL, SND_FILENAME | SND_ASYNC);
     while (playing) {
         system("cls");
         UI::DisplayBoard(board, piece);
@@ -50,7 +47,7 @@ int main() {
             if (!piece.canDown(board))
             {
                 board.PlacePiece(piece);
-                int output = rand() % 2;
+                int output = rand() % 7;
                 if (output == 1) {
                     std::cout << "DEBUG";
                 }

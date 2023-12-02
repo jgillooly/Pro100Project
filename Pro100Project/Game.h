@@ -53,8 +53,34 @@ namespace Umbrella {
             iBlocks.push_back(iBlock);
             iBlocks.push_back(iBlockR);
 
+            sBlocks.push_back(sBlock);
+            sBlocks.push_back(sBlockR);
+
+            zBlocks.push_back(zBlock);
+            zBlocks.push_back(zBlockR);
+
+            tBlocks.push_back(tBlock);
+            tBlocks.push_back(tBlockR1);
+            tBlocks.push_back(tBlockR2);
+            tBlocks.push_back(tBlockR3);
+
+            jBlocks.push_back(jBlock);
+            jBlocks.push_back(jBlockR1);
+            jBlocks.push_back(jBlockR2);
+            jBlocks.push_back(jBlockR3);
+
+            lBlocks.push_back(lBlock);
+           // lBlocks.push_back(lBlockR1);
+           // lBlocks.push_back(lBlockR2);
+           // lBlocks.push_back(lBlockR3);
+
             allBlocks["oBlock"] = oBlocks;
             allBlocks["iBlock"] = iBlocks;
+            allBlocks["sBlock"] = sBlocks;
+            allBlocks["zBlock"] = zBlocks;
+            allBlocks["tBlock"] = tBlocks;
+            allBlocks["jBlock"] = jBlocks;
+            allBlocks["lBlock"] = lBlocks;
         }
 	};
 }
