@@ -96,6 +96,7 @@ namespace Umbrella {
         positions[3].row = vec[7];
 
         pieceID = ID;
+        rotation = 0;
     }
     void Piece::Rotate(std::vector<int> vec, int ID)
     {

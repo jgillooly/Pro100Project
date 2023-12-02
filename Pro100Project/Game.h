@@ -25,14 +25,16 @@ namespace Umbrella {
         std::vector<int> tBlockR2 = { 2,2,1,2,0,2,1,1 };
         std::vector<int> tBlockR3 = { 0,0,0,1,0,2,1,1 };
 
-        std::vector<int> jBlock = { 0,0,1,0,2,0,2,1 };
-        std::vector<int> jBlockR1 = { 2,0,2,1,2,2,1,2 };
-        std::vector<int> jBlockR2 = { 2,2,1,2,0,2,0,1 };
-        std::vector<int> jBlockR3 = { 0,2,0,1,0,0,1,0 };
+        std::vector<int> lBlock = { 0,0,1,0,2,0,2,1 };
+        std::vector<int> lBlockR1 = { 2,0,2,1,2,2,1,2 };
+        std::vector<int> lBlockR2 = { 2,2,1,2,0,2,0,1 };
+        std::vector<int> lBlockR3 = { 0,2,0,1,0,0,1,0 };
 
 
-        std::vector<int> lBlock = { 0,1,1,1,2,1,2,0 };
-        std::vector<int> lBlockR = { 0,1,1,1,2,1,2,2 };
+        std::vector<int> jBlock = { 0,1,1,1,2,1,2,0 };
+        std::vector<int> jBlockR1 = { 0,0,1,0,1,1,1,2 };
+        std::vector<int> jBlockR2 = { 0,0,0,1,1,0,2,0 };
+        std::vector<int> jBlockR3 = { 0,0,0,1,0,2,1,2};
 
         std::vector<std::vector<int>> oBlocks;
         std::vector<std::vector<int>> iBlocks;
@@ -70,9 +72,9 @@ namespace Umbrella {
             jBlocks.push_back(jBlockR3);
 
             lBlocks.push_back(lBlock);
-           // lBlocks.push_back(lBlockR1);
-           // lBlocks.push_back(lBlockR2);
-           // lBlocks.push_back(lBlockR3);
+            lBlocks.push_back(lBlockR1);
+            lBlocks.push_back(lBlockR2);
+            lBlocks.push_back(lBlockR3);
 
             allBlocks["oBlock"] = oBlocks;
             allBlocks["iBlock"] = iBlocks;
