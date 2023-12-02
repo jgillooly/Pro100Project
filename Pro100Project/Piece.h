@@ -11,6 +11,8 @@ namespace Umbrella {
 			int row, column;
 		};
 	std::string color = "red";
+	int rotation = 0;
+	int pieceID;
 	public:
 		Piece(int col0, int row0, int col1, int row1, int col2, int row2, int col3, int row3) {
 			positions[0].column = col0;
@@ -40,7 +42,7 @@ namespace Umbrella {
 			positions[3].row = vec[7];
 		}
 
-		Piece(std::vector<int> vec, std::string color) {
+		Piece(std::vector<int> vec, std::string color, int pieceID) {
 			positions[0].column = vec[0] + 4;
 			positions[0].row = vec[1];
 
@@ -54,6 +56,7 @@ namespace Umbrella {
 			positions[3].row = vec[7];
 
 			this->color = color;
+			this->pieceID = pieceID;
 		}
 		Piece() {
 
@@ -64,5 +67,7 @@ namespace Umbrella {
 		bool canDown(const GameBoard& board) const;
 		void moveDown();
 		void Reset(std::vector<int> vec);
+		void Reset(std::vector<int> vec, int ID);
+		void Rotate(std::vector<int> vec, int ID);
 	};
 }

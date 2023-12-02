@@ -19,4 +19,32 @@ std::vector<int> Umbrella::Game::GetRandomPiece()
 	case 7:
 		return lBlock;
 	}
+	return oBlock;
 }
+
+std::vector<int> Umbrella::Game::GetNextRotation(std::string piece, int current)
+{
+	return jBlock;
+}
+
+std::string Umbrella::Game::PieceIDtoString(int id)
+{
+	switch (id) {
+	default:
+		return "oBlock";
+	case 1:
+		return "iBlock";
+	case 2:
+		return "sBlock";
+	case 3:
+		return "zBlock";
+	case 4:
+		return "tBlock";
+	case 5:
+		return "jBlock";
+	case 6:
+		return "lBlock";
+	}
+}
+
+
