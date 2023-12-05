@@ -12,6 +12,7 @@ namespace Umbrella {
         bool canHold = true;
         void HoldPiece(std::vector<int>& currentPiece);
         std::vector<int> GetRandomPiece();
+        std::vector<int> GetRandomPiece(int id);
 
         std::vector<int> oBlock = { 0, 0, 0, 1, 1, 0, 1, 1 };
 

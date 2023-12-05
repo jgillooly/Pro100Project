@@ -24,6 +24,26 @@ namespace Umbrella
 		}
 	}
 
+	std::vector<int> Game::GetRandomPiece(int id)
+	{
+		switch (id) {
+		default:
+			return oBlock;
+		case 1:
+			return iBlock;
+		case 2:
+			return sBlock;
+		case 3:
+			return zBlock;
+		case 4:
+			return tBlock;
+		case 5:
+			return jBlock;
+		case 6:
+			return lBlock;
+		}
+	}
+
 	std::string Umbrella::Game::PieceIDtoString(int id)
 	{
 		switch (id) {
@@ -49,6 +69,7 @@ namespace Umbrella
 		if (!heldPiece.empty()) {
 			// Swap the current piece with the held piece
 			std::swap(currentPiece, heldPiece);
+
 		}
 		else {
 			// If there's no held piece, store the current piece in the held piece

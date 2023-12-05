@@ -56,6 +56,7 @@ int main() {
                     std::cout << "DEBUG";
                 }
                 piece.Reset(game.allBlocks[game.PieceIDtoString(output)][0], output);
+                game.canHold = true;
             }
             else {
                 piece.moveDown();
@@ -64,7 +65,7 @@ int main() {
         // Get user input
         //std::cout << "Enter movement direction (l/r/s/q): ";
         if (_kbhit()) {
-            Umbrella::Move(piece, board);
+            Umbrella::Move(piece, board, game);
         }
 
 

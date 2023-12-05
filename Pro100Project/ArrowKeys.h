@@ -13,10 +13,10 @@ using namespace std;
 
 namespace Umbrella {
 
-    static bool Move(Piece& piece, GameBoard board) {
+    static bool Move(Piece& piece, GameBoard board, Game& game) {
         int c = 0;
-            c = 0;
-            Game game;
+           // c = 0;
+            //Game game;
             std::vector<int> currentPiece = game.GetRandomPiece();
             switch ((c = _getch())) {
             case KEY_UP:
@@ -43,8 +43,9 @@ namespace Umbrella {
             case 'c':
                 if (game.canHold) {
                     // Hold the current piece
-                    game.HoldPiece(currentPiece);
-                    piece.Reset(game.GetRandomPiece());
+                    //game.HoldPiece(currentPiece);
+                    int i = 1 + (rand() * (int)(7 - 1) / RAND_MAX);
+                    piece.Reset(game.GetRandomPiece(i), i);
                     game.canHold = false;
                 }
             }
