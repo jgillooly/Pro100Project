@@ -98,9 +98,17 @@ namespace Umbrella {
         pieceID = ID;
         rotation = 0;
     }
-    void Piece::Rotate(std::vector<int> vec, int ID)
+    void Piece::Rotate(GameBoard board, std::vector<int> vec, int ID)
     {
+
         Position origin = positions[0];
+
+        if (vec[1] + origin.row >= 10 || vec[3] + origin.row >= 10 ||
+            vec[5] + origin.row >= 10 || vec[7] + origin.row >= 10 ||
+            board.mainBoard.board[vec[1] + origin.row][vec[0] + origin.column] != ' ' ||
+            board.mainBoard.board[vec[3] + origin.row][vec[2] + origin.column] != ' ' ||
+            board.mainBoard.board[vec[5] + origin.row][vec[4] + origin.column] != ' ' ||
+            board.mainBoard.board[vec[7] + origin.row][vec[6] + origin.column] != ' ') return;
 
         positions[0].column = vec[0] + origin.column;
         positions[0].row = vec[1] + origin.row;
