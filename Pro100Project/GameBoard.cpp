@@ -27,7 +27,7 @@ namespace Umbrella {
 			}
 		}
 
-		for (auto segment : block.positions) {
+		for (auto segment : block.getPositions()) {
 			newboard.board[segment.row][segment.column] = '#';
 		}
 
@@ -39,7 +39,7 @@ namespace Umbrella {
 		block.drop(*this);
 		for (int i = 0; i < 4; i++)
 		{
-			mainBoard.board[block.positions[i].row][block.positions[i].column] = 'X';
+			mainBoard.board[block.getPositions()[i].row][block.getPositions()[i].column] = 'X';
 		}
 	}
 

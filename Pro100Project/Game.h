@@ -5,7 +5,10 @@
 
 namespace Umbrella {
 	class Game {
+    private:
+        std::vector<int> heldPiece;  // Store the piece in hold
     public:
+        bool canHold = true;
         std::vector<int> oBlock = { 0, 0, 0, 1, 1, 0, 1, 1 };
         std::vector<int> iBlock = { 0,0,0,1,0,2,0,3 };
         std::vector<int> sBlock = {2,0,1,0,1,1,0,1};
@@ -14,5 +17,7 @@ namespace Umbrella {
         std::vector<int> jBlock = {0,0,1,0,2,0,2,1};
         std::vector<int> lBlock = {0,1,1,1,2,1,2,0};
         std::vector<int> GetRandomPiece();
+
+        void HoldPiece(std::vector<int>& currentPiece);
 	};
 }

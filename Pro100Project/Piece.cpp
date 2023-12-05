@@ -22,26 +22,25 @@ namespace Umbrella {
 	}
     void Piece::move(char direction) {
         switch (direction) {
-        case 'l': {
+        case 'a': {
             for (int i = 0; i < 4; ++i) {
                 positions[i].column -= 1;
             }
             break;
         }
-        case 'r': {
+        case 'd': {
             for (int i = 0; i < 4; ++i) {
                 positions[i].column += 1;
             }
             break;
         }
         }
-        moveDown();
     }
 
     bool Piece::canDown(const GameBoard& board) const {
         for (int i = 0; i < 4; ++i) {
             if (positions[i].row + 1 >= 10 || board.mainBoard.board[positions[i].row + 1][positions[i].column] != ' ') {
-                return false;  // Collision with the bottom or another piece
+                return false;
             }
         }
         return true;
@@ -51,6 +50,17 @@ namespace Umbrella {
         for (int i = 0; i < 4; ++i) {
             positions[i].row += 1;
         }
+    }
+
+    Piece::Piece(const std::vector<int>& vec) {
+        for (int i = 0; i < 4; ++i) {
+            Position pos;
+            pos.column = vec[i * 2] + 4;
+            pos.row = vec[i * 2 + 1];
+            positions.push_back(pos);
+        }
+    }
+    Piece::Piece() {
     }
 
     void Piece::Reset(std::vector<int> vec) {
