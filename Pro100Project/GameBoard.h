@@ -7,13 +7,13 @@ namespace Umbrella {
 		static const int COL_SIZE = 10;
 		static const int ROW_SIZE = 10;
 		struct Board {
-			char board[10][10];
-			std::string colors[10][10];
+			char board[COL_SIZE][ROW_SIZE];
+			std::string colors[COL_SIZE][ROW_SIZE];
 		};
 		GameBoard() {
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < COL_SIZE; i++)
 			{
-				for (int j = 0; j < 10; j++)
+				for (int j = 0; j < ROW_SIZE; j++)
 				{
 					mainBoard.board[i][j] = ' ';
 				}
