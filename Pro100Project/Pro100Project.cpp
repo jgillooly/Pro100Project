@@ -8,7 +8,6 @@
 #include <conio.h>
 #include <random>
 #include <Windows.h>
-#include <mmsystem.h>
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
@@ -26,9 +25,9 @@ int main() {
     Game game;
     Piece piece(game.oBlock);
     auto start = high_resolution_clock::now();
-    
+
     UI::StartScreen();
-    
+
     std::cout << "Press Enter to start the game...";
     std::cin.ignore(LLONG_MAX, '\n'); // Wait for Enter key
 
@@ -42,7 +41,7 @@ int main() {
         //get the current time
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<seconds>(stop - start);
-  
+
         if (duration.count() >= 2) {
             start = high_resolution_clock::now();
             if (!piece.canDown(board))
@@ -71,13 +70,13 @@ int main() {
             playing = false;
             UI::EndScreen();
         }
-        
+
 
         // Simulate a delay for a smoother experience (adjust as needed)
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
         board.ClearLines();
-        
+
     }
 
     return 0;
