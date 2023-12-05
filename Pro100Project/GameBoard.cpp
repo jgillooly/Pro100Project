@@ -27,7 +27,7 @@ namespace Umbrella {
 			}
 		}
 
-		for (auto segment : block.positions) {
+		for (auto segment : block.getPositions()) {
 			newboard.board[segment.row][segment.column] = '#';
 		}
 		return newboard;
@@ -40,7 +40,7 @@ namespace Umbrella {
 			if (mainBoard.board[0][i] == ' ') continue;
 			for (int j = 0; j < 4; j++)
 			{
-				if (nextBlock.positions[j].column == i)
+				if (nextBlock.getPositions()[j].column == i)
 				{
 					return true;
 				}
@@ -55,8 +55,7 @@ namespace Umbrella {
 		block.drop(*this);
 		for (int i = 0; i < 4; i++)
 		{
-			mainBoard.board[block.positions[i].row][block.positions[i].column] = 'X';
-			mainBoard.colors[block.positions[i].row][block.positions[i].column] = block.color;
+			mainBoard.board[block.getPositions()[i].row][block.getPositions()[i].column] = 'X';
 		}
 	}
 

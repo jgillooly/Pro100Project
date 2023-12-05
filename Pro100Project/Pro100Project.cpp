@@ -9,10 +9,11 @@
 #include <random>
 #include <Windows.h>
 #include "GameBoard.h"
+#include "ArrowKeys.h"
 #include "UI.h"
 #include "Piece.h"
 #include "Game.h"
-#include "ArrowKeys.h"
+#include <conio.h>
 
 #pragma comment(lib, "winmm.lib")
 
@@ -23,6 +24,7 @@ using namespace std;
 int main() {
     GameBoard board;
     Game game;
+    char userInput;
     Piece piece(game.oBlock);
     auto start = high_resolution_clock::now();
 
@@ -32,6 +34,8 @@ int main() {
     std::cin.ignore(LLONG_MAX, '\n'); // Wait for Enter key
 
     bool playing = true;
+
+    std::vector<int> currentPiece = game.GetRandomPiece();
 
     PlaySound(TEXT("Music.wav"), NULL, SND_FILENAME | SND_ASYNC);
     while (playing) {
@@ -43,7 +47,7 @@ int main() {
         auto duration = duration_cast<seconds>(stop - start);
 
         if (duration.count() >= 2) {
-            start = high_resolution_clock::now();
+            start = std::chrono::high_resolution_clock::now();
             if (!piece.canDown(board))
             {
                 board.PlacePiece(piece);
@@ -81,8 +85,6 @@ int main() {
 
     return 0;
 }
-
-
 
 
 

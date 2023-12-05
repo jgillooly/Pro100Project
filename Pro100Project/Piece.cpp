@@ -1,6 +1,7 @@
 // Piece.cpp
 #include "Piece.h"
 #include "GameBoard.h"
+#include "Game.h"
 
 namespace Umbrella {
 	void Piece::drop(GameBoard& board) {
@@ -23,7 +24,7 @@ namespace Umbrella {
 	void Piece::move(char direction, GameBoard board) {
 		bool canmove = true;
 		switch (direction) {
-		case 'l': {
+		case 'a': {
 			for (int i = 0; i < 4; ++i) {
 				if (board.mainBoard.board[positions[i].row][positions[i].column - 1] != ' ') canmove = false;
 
@@ -41,7 +42,7 @@ namespace Umbrella {
 			}
 			break;
 		}
-		case 'r': {
+		case 'd': {
 			for (int i = 0; i < 4; ++i) {
 				if (board.mainBoard.board[positions[i].row][positions[i].column + 1] != ' ') canmove = false;
 
@@ -78,9 +79,20 @@ namespace Umbrella {
 		}
 	}
 
-	void Piece::Reset(std::vector<int> vec) {
-		positions[0].column = vec[0] + 4;
-		positions[0].row = vec[1];
+    Piece::Piece(const std::vector<int>& vec) {
+        for (int i = 0; i < 4; ++i) {
+            Position pos;
+            pos.column = vec[i * 2] + 4;
+            pos.row = vec[i * 2 + 1];
+            positions.push_back(pos);
+        }
+    }
+    Piece::Piece() {
+    }
+
+    void Piece::Reset(std::vector<int> vec) {
+        positions[0].column = vec[0] + 4;
+        positions[0].row = vec[1];
 
 		positions[1].column = vec[2] + 4;
 		positions[1].row = vec[3];

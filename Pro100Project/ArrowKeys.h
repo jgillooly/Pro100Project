@@ -1,5 +1,6 @@
 #include "Piece.h"
 #include "GameBoard.h"
+#include "Game.h"
 #include <conio.h>
 #include <iostream>
 using namespace std;
@@ -16,6 +17,7 @@ namespace Umbrella {
         int c = 0;
             c = 0;
             Game game;
+            std::vector<int> currentPiece = game.GetRandomPiece();
             switch ((c = _getch())) {
             case KEY_UP:
             { //rotation
@@ -33,11 +35,18 @@ namespace Umbrella {
                 piece.drop(board);
                 break;
             case KEY_LEFT:
-                piece.move('l', board);
+                piece.move('a', board);
                 break;
             case KEY_RIGHT:
-                piece.move('r', board);
+                piece.move('d', board);
                 break;
+            case 'c':
+                if (game.canHold) {
+                    // Hold the current piece
+                    game.HoldPiece(currentPiece);
+                    piece.Reset(game.GetRandomPiece());
+                    game.canHold = false;
+                }
             }
         return false;
     }
