@@ -8,6 +8,7 @@
 #include <conio.h>
 #include <random>
 #include <Windows.h>
+#include <mmsystem.h>
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
@@ -33,7 +34,7 @@ int main() {
 
     bool playing = true;
 
-    PlaySound(TEXT("Music.mp3"), NULL, SND_FILENAME | SND_ASYNC);
+    PlaySound(TEXT("Music.wav"), NULL, SND_FILENAME | SND_ASYNC);
     while (playing) {
         system("cls");
         UI::DisplayBoard(board, piece);

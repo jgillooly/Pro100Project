@@ -68,6 +68,6 @@ namespace Umbrella {
 		void moveDown();
 		void Reset(std::vector<int> vec);
 		void Reset(std::vector<int> vec, int ID);
-		void Rotate(std::vector<int> vec, int ID);
+		Piece Rotate(std::vector<int> vec, int ID);
 	};
 }

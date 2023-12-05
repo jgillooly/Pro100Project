@@ -3,8 +3,8 @@
 
 namespace Umbrella {
 	void GameBoard::ClearLines() {
-		for (int i = 9; i >= 0; i--) {
-			for (int j = 0; j < 10; j++) {
+		for (int i = COL_SIZE - 1; i >= 0; i--) {
+			for (int j = 0; j < ROW_SIZE; j++) {
 				if (mainBoard.board[i][j] != ' ') {
 					if (j == 9) {
 						ClearLine(i);
@@ -19,9 +19,9 @@ namespace Umbrella {
 	Umbrella::GameBoard::Board GameBoard::IncludePiece(Piece block) {
 		GameBoard::Board newboard;
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < COL_SIZE; i++)
 		{
-			for (int j = 0; j < 10; j++)
+			for (int j = 0; j < ROW_SIZE; j++)
 			{
 				newboard.board[i][j] = mainBoard.board[i][j];
 			}
@@ -63,11 +63,11 @@ namespace Umbrella {
 	void GameBoard::ClearLine(int col)
 	{
 		for (int i = col; i >= 1; i--) {
-			for (int j = 0; j < 10; j++) {
+			for (int j = 0; j < ROW_SIZE; j++) {
 				mainBoard.board[i][j] = mainBoard.board[i - 1][j];
 			}
 		}
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < ROW_SIZE; i++) {
 			mainBoard.board[0][i] = ' ';
 		}
 	}
