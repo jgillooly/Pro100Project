@@ -20,17 +20,32 @@ namespace Umbrella {
 			}
 		}
 	}
-    void Piece::move(char direction) {
+    void Piece::move(char direction, GameBoard board) {
+        bool canmove = true;
         switch (direction) {
         case 'a': {
             for (int i = 0; i < 4; ++i) {
-                positions[i].column -= 1;
+                if (board.mainBoard.board[positions[i].row][positions[i].column - 1] != ' ') canmove = false;
+
+            }
+            if (canmove)
+            {
+                for (int i = 0; i < 4; ++i) {
+                    positions[i].column -= 1;
+                }
             }
             break;
         }
         case 'd': {
             for (int i = 0; i < 4; ++i) {
-                positions[i].column += 1;
+                if (board.mainBoard.board[positions[i].row][positions[i].column + 1] != ' ') canmove = false;
+
+            }
+            if (canmove)
+            {
+                for (int i = 0; i < 4; ++i) {
+                    positions[i].column += 1;
+                }
             }
             break;
         }
@@ -40,7 +55,8 @@ namespace Umbrella {
     bool Piece::canDown(const GameBoard& board) const {
         for (int i = 0; i < 4; ++i) {
             if (positions[i].row + 1 >= 10 || board.mainBoard.board[positions[i].row + 1][positions[i].column] != ' ') {
-                return false;
+                
+                return false;  // Collision with the bottom or another piece
             }
         }
         return true;
@@ -75,5 +91,40 @@ namespace Umbrella {
 
         positions[3].column = vec[6] + 4;
         positions[3].row = vec[7];
+    }
+    void Piece::Reset(std::vector<int> vec, int ID)
+    {
+        positions[0].column = vec[0] + 4;
+        positions[0].row = vec[1];
+
+        positions[1].column = vec[2] + 4;
+        positions[1].row = vec[3];
+
+        positions[2].column = vec[4] + 4;
+        positions[2].row = vec[5];
+
+        positions[3].column = vec[6] + 4;
+        positions[3].row = vec[7];
+
+        pieceID = ID;
+        rotation = 0;
+    }
+    void Piece::Rotate(std::vector<int> vec, int ID)
+    {
+        Position origin = positions[0];
+
+        positions[0].column = vec[0] + origin.column;
+        positions[0].row = vec[1] + origin.row;
+
+        positions[1].column = vec[2] + origin.column;
+        positions[1].row = vec[3] + origin.row;
+
+        positions[2].column = vec[4] + origin.column;
+        positions[2].row = vec[5] + origin.row;
+
+        positions[3].column = vec[6] + origin.column;
+        positions[3].row = vec[7] + origin.row;
+
+        rotation = ID;
     }
 }

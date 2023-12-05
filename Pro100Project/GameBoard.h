@@ -1,5 +1,6 @@
 #pragma once
 #include "Piece.h"
+#include <string>
 namespace Umbrella {
 	class GameBoard {
 	public:
@@ -7,6 +8,7 @@ namespace Umbrella {
 		static const int ROW_SIZE = 10;
 		struct Board {
 			char board[10][10];
+			std::string colors[10][10];
 		};
 		GameBoard() {
 			for (int i = 0; i < 10; i++)
@@ -23,6 +25,7 @@ namespace Umbrella {
 		Board IncludePiece(Piece block);
 		void PlacePiece(Piece block);
 
+		bool CheckForLoss(Piece nextBlock);
 
 	private:
 		void ClearLine(int col);

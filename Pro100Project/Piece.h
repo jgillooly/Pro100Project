@@ -1,6 +1,7 @@
 // Piece.h
 #pragma once
 #include <vector>
+#include <string>
 
 namespace Umbrella {
 	class GameBoard;
@@ -9,6 +10,9 @@ namespace Umbrella {
 		struct Position {
 			int row, column;
 		};
+	std::string color = "red";
+	int rotation = 0;
+	int pieceID;
 	private:
 		std::vector<Position> positions;
 	public:
@@ -21,10 +25,46 @@ namespace Umbrella {
 			return positions;
 		}
 
-		void move(char direction);
+		Piece(std::vector<int> vec) {
+			positions[0].column = vec[0] + 4;
+			positions[0].row = vec[1];
+
+			positions[1].column = vec[2] + 4;
+			positions[1].row = vec[3];
+
+			positions[2].column = vec[4] + 4;
+			positions[2].row = vec[5];
+
+			positions[3].column = vec[6] + 4;
+			positions[3].row = vec[7];
+		}
+
+		Piece(std::vector<int> vec, std::string color, int pieceID) {
+			positions[0].column = vec[0] + 4;
+			positions[0].row = vec[1];
+
+			positions[1].column = vec[2] + 4;
+			positions[1].row = vec[3];
+
+			positions[2].column = vec[4] + 4;
+			positions[2].row = vec[5];
+
+			positions[3].column = vec[6] + 4;
+			positions[3].row = vec[7];
+
+			this->color = color;
+			this->pieceID = pieceID;
+		}
+		Piece() {
+
+		}
+		Position positions[4];
+		void move(char direction, GameBoard board);
 		void drop(GameBoard& board); // New method for dropping the piece
 		bool canDown(const GameBoard& board) const;
 		void moveDown();
 		void Reset(std::vector<int> vec);
+		void Reset(std::vector<int> vec, int ID);
+		void Rotate(std::vector<int> vec, int ID);
 	};
 }
