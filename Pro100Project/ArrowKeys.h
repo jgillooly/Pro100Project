@@ -1,5 +1,6 @@
 #include "Piece.h"
 #include "GameBoard.h"
+#include "Game.h"
 #include <conio.h>
 #include <iostream>
 using namespace std;

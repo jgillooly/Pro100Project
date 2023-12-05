@@ -10,6 +10,7 @@ namespace Umbrella {
         std::vector<int> heldPiece;  // Store the piece in hold
     public:
         bool canHold = true;
+        void HoldPiece(std::vector<int>& currentPiece);
         std::vector<int> GetRandomPiece();
 
         std::vector<int> oBlock = { 0, 0, 0, 1, 1, 0, 1, 1 };

@@ -40,7 +40,7 @@ namespace Umbrella {
 			if (mainBoard.board[0][i] == ' ') continue;
 			for (int j = 0; j < 4; j++)
 			{
-				if (nextBlock.positions[j].column == i)
+				if (nextBlock.getPositions()[j].column == i)
 				{
 					return true;
 				}
