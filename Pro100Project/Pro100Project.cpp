@@ -5,6 +5,10 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <conio.h>
+#include <random>
+#include <Windows.h>
+#include <mmsystem.h>
 #include "GameBoard.h"
 #include "UI.h"
 #include "Piece.h"
@@ -31,8 +35,8 @@ int main() {
     constexpr auto dropInterval = std::chrono::milliseconds(500);
     std::vector<int> currentPiece = game.GetRandomPiece();
 
-    while (true) {
-        // Display the board and piece
+    PlaySound(TEXT("Music.wav"), NULL, SND_FILENAME | SND_ASYNC);
+    while (playing) {
         system("cls");
         UI::DisplayBoard(board, piece);
 

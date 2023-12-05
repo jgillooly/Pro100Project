@@ -27,7 +27,7 @@ namespace Umbrella {
                 else {
                     rotID++;
                 }
-                piece.Rotate(game.allBlocks[game.PieceIDtoString(piece.pieceID)][rotID], rotID);
+                piece.Rotate(board,game.allBlocks[game.PieceIDtoString(piece.pieceID)][rotID], rotID);
                 break;
             }
             case KEY_DOWN:

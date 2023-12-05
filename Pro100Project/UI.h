@@ -10,7 +10,7 @@ namespace Umbrella {
 			auto newBoard = board.IncludePiece(block);
 			std::cout << "\n";
 			std::string whitespace = "    ";
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < GameBoard::ROW_SIZE; i++)
 			{
 				std::cout << whitespace <<"|";
 				for (int j = 0; j < GameBoard::COL_SIZE; j++)
