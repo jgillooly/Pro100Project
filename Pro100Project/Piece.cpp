@@ -133,7 +133,5 @@ namespace Umbrella {
 		positions[3].row = vec[7] + origin.row;
 
 		rotation = ID;
-
-		return *this;
 	}
 }
