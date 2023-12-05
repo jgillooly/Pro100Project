@@ -10,29 +10,30 @@
 #include <Windows.h>
 #include <mmsystem.h>
 #include "GameBoard.h"
+#include "ArrowKeys.h"
 #include "UI.h"
 #include "Piece.h"
 #include "Game.h"
 #include <conio.h>
+
+#pragma comment(lib, "winmm.lib")
 
 using namespace Umbrella;
 
 int main() {
     GameBoard board;
     Game game;
-    Game games;
-    Piece piece(game.oBlock);
-
     char userInput;
+    Piece piece(game.oBlock);
+    auto start = std::chrono::high_resolution_clock::now();
+
     UI::StartScreen();
 
-    // Prompt the user to start the game
     std::cout << "Press Enter to start the game...";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Wait for Enter key
+    std::cin.ignore(LLONG_MAX, '\n'); // Wait for Enter key
 
-    // Set up a timer for dropping the piece every second
-    auto dropTimer = std::chrono::steady_clock::now();
-    constexpr auto dropInterval = std::chrono::milliseconds(500);
+    bool playing = true;
+
     std::vector<int> currentPiece = game.GetRandomPiece();
 
     PlaySound(TEXT("Music.wav"), NULL, SND_FILENAME | SND_ASYNC);
@@ -40,73 +41,45 @@ int main() {
         system("cls");
         UI::DisplayBoard(board, piece);
 
-        // Get user input without blocking
-        if (_kbhit()) {
-            userInput = _getch();
+        //get the current time
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::seconds>(stop - start);
 
-            // Handle user input
-            if (userInput == 'q') {
-                break;  // Quit the loop if the user enters 'q'
-            }
-            else if (userInput == 'a' || userInput == 'd') {
-                // Move the piece left or right based on user input
-                piece.move(userInput);
-            }
-            else if (userInput == 's') {
-                // Drop the piece one position down
-                if (piece.canDown(board)) {
-                    piece.drop(board);
-                }
-                else {
-                    // If the piece cannot move down, place it on the board and reset
-                    board.PlacePiece(piece);
-                    piece.Reset(game.GetRandomPiece());
-                }
-            }
-            else if (userInput == 'h' && game.canHold) {
-                // Hold the current piece
-                game.HoldPiece(currentPiece);
-                piece.Reset(game.GetRandomPiece());
-                game.canHold = false;
-            }
-
-            if (!game.canHold)
+        if (duration.count() >= 2) {
+            start = std::chrono::high_resolution_clock::now();
+            if (!piece.canDown(board))
             {
-                //std::swap(currentPiece, );
-            }
-        }
-
-        // Check if it's time to drop the piece
-        auto now = std::chrono::steady_clock::now();
-        if (now - dropTimer >= dropInterval) {
-            // Move the piece down if possible
-            if (piece.canDown(board)) {
-                if (!piece.canDown(board))
-                {
-                    board.PlacePiece(piece);
-                    piece.Reset(game.GetRandomPiece());
+                board.PlacePiece(piece);
+                int output = rand() % 7;
+                if (output == 1) {
+                    std::cout << "DEBUG";
                 }
-                else
-                {
-                    piece.moveDown();
-                }
+                piece.Reset(game.allBlocks[game.PieceIDtoString(output)][0], output);
             }
             else {
-                // If the piece cannot move down, place it on the board and reset
-                board.PlacePiece(piece);
-                game.canHold = true;
-                piece.Reset(game.GetRandomPiece());
+                piece.moveDown();
             }
-            // Update the drop timer
-            dropTimer = now;
+        }
+        // Get user input
+        //std::cout << "Enter movement direction (l/r/s/q): ";
+        if (_kbhit()) {
+            Umbrella::Move(piece, board);
         }
 
+
+        //check if loss 
+        if (board.CheckForLoss(piece))
+        {
+            playing = false;
+            UI::EndScreen();
+        }
+
+
         // Simulate a delay for a smoother experience (adjust as needed)
-        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-
-        // Clear completed lines on the board
         board.ClearLines();
+
     }
 
     return 0;

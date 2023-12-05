@@ -24,6 +24,26 @@ namespace Umbrella
 		}
 	}
 
+	std::string Umbrella::Game::PieceIDtoString(int id)
+	{
+		switch (id) {
+		default:
+			return "oBlock";
+		case 1:
+			return "iBlock";
+		case 2:
+			return "sBlock";
+		case 3:
+			return "zBlock";
+		case 4:
+			return "tBlock";
+		case 5:
+			return "jBlock";
+		case 6:
+			return "lBlock";
+		}
+	}
+
 
 	void Game::HoldPiece(std::vector<int>& currentPiece) {
 		if (!heldPiece.empty()) {
